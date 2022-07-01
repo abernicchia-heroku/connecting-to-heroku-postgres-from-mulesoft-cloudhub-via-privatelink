@@ -6,8 +6,9 @@ The author of this article makes any warranties about the completeness, reliabil
 
 ## Setup procedure
 
-Connecting directly via PrivateLink to a Heroku Postgres from MuleSoft CloudHub is not (yet) supported, however, it’s possible to overcome this limitation using an intermediate AWS VPC. 
-![Connecting to Heroku Postgres from MuleSoft CloudHub via PrivateLink](images/heroku-pg-from-msch-via-pl.png-v1.0.png)
+Connecting directly via PrivateLink to a Heroku Postgres from MuleSoft CloudHub is not (yet) supported, however, it’s possible to overcome this limitation using an intermediate AWS VPC.
+
+![Connecting to Heroku Postgres from MuleSoft CloudHub via PrivateLink](images/heroku-pg-from-msch-via-pl-v1.0.png)
 
 1. Follow the procedure described in the article [Connecting to a Private or Shield Heroku Postgres Database via PrivateLink](https://devcenter.heroku.com/articles/heroku-postgres-via-privatelink) to create a PrivateLink to Heroku Postgres and a VPC Endpoint within an AWS VPC. You can use this [Terraform project](https://github.com/abernicchia-heroku/heroku-postgres-aws-privatelink) to automate the required tasks. Once created, the VPC endpoint should resolve to a [fixed private IP](https://repost.aws/questions/QUykbQk9gdQGyBwjkypOZulA/does-the-ip-address-created-for-private-link-interface-endpoint-can-change#ANHN7fD5z0QP-juGta608CSQ) (within the AWS VPC CIDR) via public DNS records
 2. [Create an AWS Transit Gateway](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-getting-started.html#step-create-tgw) 
