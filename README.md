@@ -18,7 +18,7 @@ Connecting directly via PrivateLink to a Heroku Postgres from MuleSoft CloudHub 
 6. [Configure the outbound traffic](https://docs.mulesoft.com/runtime-manager/tgw-attach-arm#configure_tgw_routing) from the MuleSoft CloudHub VPC to the AWS VPC
 7. Edit the AWS VPC (e.g. VPC B - 10.2.0.0/16) routes and add a route to the MuleSoft CloudHub VPC (e.g. VPC A - 10.4.0.0/16) via the Transit Gateway
 8. [Configure the MuleSoft Application Database Config](https://blogs.mulesoft.com/dev-guides/api-connectors-templates/connect-heroku-postgres-database-connector/) to connect to Heroku Postgres and use the VPC Endpoint URL created in step (1) (see [here](https://devcenter.heroku.com/articles/heroku-postgres-via-privatelink#connecting-the-heroku-and-amazon-vpc-endpoints)) as the database connection URL
-9. Deploy the MuleSoft Application into the environment (e.g. Sandbox) assigned to MuleSoft CloudHub VPC under the same VPC region
+9. Deploy the MuleSoft Application into the environment (e.g. Sandbox) assigned to the MuleSoft CloudHub VPC and using the same VPC region
 10. Ensure that the MuleSoft Application worker has a private IP within the assigned MuleSoft CloudHub VPC CIDR (e.g. VPC A - 10.4.0.0/16)  using `dig mule-worker-internal-<application name>.<region>.cloudhub.io` (e.g. dig [mule-worker-internal-myapp.de-c1.eu1.cloudhub.io](http://mule-worker-internal-myapp.de-c1.eu1.cloudhub.io/))
 11. Check from the logs that the MuleSoft Application worker starts correctly and that the Postgres connection is created without any errors
 
